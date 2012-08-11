@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DeviceAjax.aspx.cs" Inherits="System_DeviceAjax" %>

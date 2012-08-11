@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LeaveAjax.aspx.cs" Inherits="Attendance_LeaveAjax" %>

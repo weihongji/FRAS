@@ -1,0 +1,161 @@
+﻿/* PRIMARY LAYOUT ELEMENTS
+----------------------------------------------------------*/
+body {
+	background-color: #CCC;
+}
+
+div.page {
+	position: relative;
+	background-color: #E5EAED;
+}
+
+#banner {
+	height: 73px;
+	background-color: #4F98C1;
+	background-image: url(../Image/head.gif);
+	background-repeat: no-repeat;
+}
+
+.banner_bottom {
+	height: 26px;
+	width: 100%;
+	background-image: url(../Image/banner_bottom.gif);
+	background-repeat: repeat-x;
+}
+
+#topmenu {
+	height: 40px;
+	background-color: #3A4F63;
+	border-bottom: 1px solid #4E667D;
+}
+
+#left {
+	position: absolute;
+	margin-left: 10px;
+	width: 182px;
+	background-image: url(../Image/left_bg.gif);
+	background-repeat: repeat-y;
+}
+
+#left_collapsed, #left_collapsed_holder {
+	position: absolute;
+	padding: 10px 3px;
+	width: 15px;
+	height: 80px;
+	cursor: pointer;
+	display:none;
+}
+
+#left_collapsed {
+	border: 1px solid #CCC;
+	background-color: #FFFF80;
+	color: #4b4b4b;
+	font-weight: bold;
+}
+
+#left_collapsed_holder {
+	border: 0px solid #CCC;
+}
+
+#right {
+	margin-left: 192px;
+	padding: 0px 10px;
+	min-width: 775px;
+	min-height: 540px;
+	position: relative;
+}
+
+#footer {
+	margin-top: 5px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #CCC;
+}
+
+/* BANNER ELEMENTS
+----------------------------------------------------------*/
+.logout {
+	position: relative;
+	top: 30px;
+	width: 850px;
+	text-align: right;
+	font-size:14px;
+	color: #FFCC20;
+}
+
+.logout a {
+	color: #FFCC20;
+}
+
+/* LEFT ELEMENTS
+----------------------------------------------------------*/
+#left ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+#left li {
+	background-image: url(../Image/menu_bg.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+#left a {
+	font-size: 13px;
+	line-height: 30px;
+	font-weight: normal;
+	color: #4b4b4b;
+	display: block;
+	height: 30px;
+	width: 182px;
+	text-align: center;
+}
+
+#left a:hover {
+	font-weight: bold;
+	color: #11569B;
+	background-image: url(../Image/hover.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#left span a {
+	text-indent: 25px;
+}
+
+#left a.highlight {
+	font-size: 13px;
+	font-weight: bold;
+	color: #11569B;
+	background-image: url(../Image/hover.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/* RIGHT ELEMENTS
+----------------------------------------------------------*/
+#right_border_top, #right_border_bottom {
+	width: 780px;
+	min-width: 780px;
+}
+
+#right_content {
+	margin-left: 2px;
+	width: 754px;
+	min-width: 754px;
+	min-height: 500px;
+	padding: 1px 10px 10px; /*Trick to prevent margin of inner element take room outside of current div. */
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	background-color: #F3F3F3;
+}
+
+#right .title {
+	margin: 10px 0px;
+	padding-bottom: 5px;
+	font-size: 14px;
+	border-bottom: 1px solid #11569B;
+	color: #11569B;
+}

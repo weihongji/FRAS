@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AccessAjax.aspx.cs" Inherits="Query_AccessAjax" %>

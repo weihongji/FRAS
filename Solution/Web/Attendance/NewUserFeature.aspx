@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NewUserFeature.aspx.cs" Inherits="Attendance_NewUserFeature" %>

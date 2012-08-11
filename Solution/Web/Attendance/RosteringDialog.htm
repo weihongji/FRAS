@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta content="IE=8" http-equiv="X-UA-Compatible"/>
+	<title>班次类型</title>
+	<link rel="shortcut icon" href="~/Image/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="../Style/common.css" />
+	<script type="text/javascript" src="../Script/jquery.min.js"></script>
+	<script type="text/javascript" src="../Script/fras.js"></script>
+
+	<script type="text/javascript" language="javascript">
+		$(function () {
+			$("#btnOne,#btnTwo").click(function (event) {
+				window.returnValue = event.target.id == "btnOne" ? "1" : "2";
+				window.close();
+			});
+		});
+	</script>
+</head>
+<body>
+<div style="margin:0 auto; width:400px; text-align:center;">
+	<div style="margin-top:20px;font-size:1.5em;">班次类型</div>
+	<div style="margin-top:30px;"><input type="button" id="btnOne" style="width:160px; height:60px;" value="单时间段班次设置" /></div>
+	<div style="margin-top:5px;">如：零点班班次，时间段为0:00-8:00</div>
+	<div style="margin-top:30px;"><input type="button" id="btnTwo" style="width:160px; height:60px;" value="多时间段班次设置" /></div>
+	<div style="margin-top:5px;">如：办公楼班次，分为上下午两个时间段，<br />上午8:00-12:00，下午14:00-18:00</div>
+</div>
+</body>
+</html>

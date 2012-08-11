@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DurationAjax.aspx.cs" Inherits="Query_DurationAjax" %>

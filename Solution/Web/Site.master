@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="PageHead" runat="server">
+	<meta content="IE=8" http-equiv="X-UA-Compatible"/>
+	<title></title>
+	<link rel="shortcut icon" href="~/Image/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="~/Style/common.css" />
+	<link type="text/css" rel="stylesheet" href="~/Style/site.css" />
+	<script type="text/javascript" src="<%=ResolveUrl("~/Script/jquery.min.js")%>"></script>
+	<script type="text/javascript" src="<%=ResolveUrl("~/Script/fras.js")%>"></script>
+	<script type="text/javascript" language="javascript">
+		var i = 0;
+		$(function () {
+			// Left
+			$("#left>img").each(function () {
+				if ($(this).css("cursor") == "pointer") {
+					var extendingImg = this;
+					$(this).click(function () {
+						extendModule(extendingImg.alt);
+					});
+				}
+			});
+			//extendModule("<%=CurrentModule %>");
+			//highlightMenu("<%=CurrentFeature %>");
+
+			// Right
+			//setNavigationBar("<%=CurrentModule %>");
+		});
+	</script>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body class="main">
+	<form runat="server">
+	<div class="page">
+		<div id="banner">
+			<div class="logout">
+				<span>用户：<%=LoginUserCode%></span>&nbsp;
+				[<asp:HyperLink NavigateUrl="~/Login.aspx" runat="server">退出</asp:HyperLink>]
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div class="banner_bottom"></div>
+		<div id="left">
+			<img src="<% = ResolveUrl("~/Image/menu_query.gif")%>" style="cursor:pointer;" alt="Query" />
+			<ul>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Query", 0))%>"><% = FeatureName("Query", 0)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Query", 1))%>"><% = FeatureName("Query", 1)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Query", 2))%>"><% = FeatureName("Query", 2)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Query", 3))%>"><% = FeatureName("Query", 3)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Query", 4))%>"><% = FeatureName("Query", 4)%></a></li>
+			</ul>
+			<%if (IsShowAttendMenu) { %>
+			<img src="<% = ResolveUrl("~/Image/menu_attend.gif")%>" style="cursor:pointer;" alt="Attendance" />
+			<ul>
+				<%if (IsShowAttendAdvancedItem) { %>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Attendance", 0))%>"><% = FeatureName("Attendance", 0)%></a></li>
+				<%} %>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Attendance", 1))%>"><% = FeatureName("Attendance", 1)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Attendance", 2))%>"><% = FeatureName("Attendance", 2)%></a></li>
+				<%if (IsShowAttendAdvancedItem) { %>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Attendance", 3))%>"><% = FeatureName("Attendance", 3)%></a></li>
+				<%} %>
+				<li><a href="<% = ResolveUrl(FeatureUrl("Attendance", 4))%>"><% = FeatureName("Attendance", 4)%></a></li>
+			</ul>
+			<%} %>
+			<%if (IsShowSystemMenu) { %>
+			<img src="<% = ResolveUrl("~/Image/menu_system.gif")%>" style="cursor:pointer;" alt="System" />
+			<ul>
+				<li><a href="<% = ResolveUrl(FeatureUrl("System", 0))%>"><% = FeatureName("System", 0)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("System", 1))%>"><% = FeatureName("System", 1)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("System", 2))%>"><% = FeatureName("System", 2)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("System", 3))%>"><% = FeatureName("System", 3)%></a></li>
+				<li><a href="<% = ResolveUrl(FeatureUrl("System", 4))%>"><% = FeatureName("System", 4)%></a></li>
+			</ul>
+			<%} %>
+			<img src="<% = ResolveUrl("~/Image/menu_help.gif")%>" style="cursor:pointer; display:none;" alt="Help" />
+			<img src="<% = ResolveUrl("~/Image/menu_help_Trail.jpg")%>" style="display:none;" alt="" />
+			<img src="<% = ResolveUrl("~/Image/menu_bottom.gif")%>" alt="" />
+		</div>
+		<div id="left_collapsed">隐藏菜单<<</div>
+		<div id="left_collapsed_holder"></div>
+		<div id="right">
+			<div id="right_border_top"><img src="<% = ResolveUrl("~/Image/right_top.gif")%>" alt="" style="width:100%;" /></div>
+			<div id="right_content">
+				<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			</div>
+			<div id="right_border_bottom"><img src="<% = ResolveUrl("~/Image/right_bottom.gif")%>" alt="" style="width:100%;" /></div>
+		</div>
+		<div id="footer">
+			版权所有 &copy; 2012
+		</div>
+	</div>
+	</form>
+	<script type="text/javascript" language="javascript">
+		extendModule("<%=CurrentModule %>");
+		highlightMenu("<%=CurrentFeature %>");
+
+		// Right
+		setNavigationBar("<%=CurrentModule %>");
+	</script>
+</body>
+</html>

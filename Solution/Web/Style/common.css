@@ -1,0 +1,136 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+body {
+	margin:0;
+	padding:0;
+	font-family:"宋体",Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+
+div.title {
+	margin: 10px 0px;
+	padding-bottom: 5px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #666;
+	border-bottom: 2px solid #DDD;
+}
+
+a:link, a:visited {
+	color: #11569B;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #1d60ff;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #034af3;
+}
+
+fieldset {
+	padding: 4px 9px 8px;
+}
+
+legend {
+	padding: 0px 5px;
+}
+
+/* List of records
+----------------------------------------------------------*/
+table.list {
+	border-collapse: collapse;
+	table-layout: fixed;
+	background-color: #fff;
+}
+
+table.list th {
+	margin: 0px;
+	padding: 3px;
+	border: 1px solid #D8D8D8;
+	background-image: url(../Image/table_bg01.gif);
+	font-size: 12px;
+	font-weight: normal;
+	color: #4B4B4B;
+}
+
+table.two_line_header th {
+	background-image: url(../Image/table_bg02.gif);
+}
+
+table.list td {
+	margin: 0px;
+	padding: 3px;
+	border: 1px solid #D8D8D8;
+	overflow: hidden;
+	font-size: 12px;
+	color: #4B4B4B;
+}
+
+table.list>thead>tr, table.list>tbody>tr {
+	cursor: default;
+}
+
+table.list>tbody>tr:hover {
+	background-color: #E5E5E5;
+	/*cursor: pointer;*/
+}
+
+td.r {
+	text-align: right;
+}
+
+td.c {
+	text-align: center;
+}
+
+input.button2 {
+	width: 50px;
+}
+
+input.button4 {
+	width: 100px;
+}
+
+
+input.p { /*checkbox*/
+	cursor: pointer;
+}
+
+input.textbox {
+	width: 120px;
+}
+
+select.default {
+	width: 120px;
+}
+
+select.w180 {
+	width: 180px;
+}
+
+/* Tree View
+----------------------------------------------------------*/
+.treeCss td div {
+	height: 20px !important;
+}
+
+.treeCss a {
+	color:black;
+	text-decoration: none;
+}
+
+.treeCss a:link, .treeCss a:visited {
+	color:black;
+}
+
+.treeCss a:hover {
+	color: #1d60ff;
+	text-decoration: underline;
+}
+
+.treeCss a:active {
+	color: black;
+}

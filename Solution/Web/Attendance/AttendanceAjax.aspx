@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AttendanceAjax.aspx.cs" Inherits="Attendance_AttendanceAjax" %>
