@@ -42,6 +42,11 @@
 				$("#selAccessFlag").focus();
 				return;
 			}
+			if (isEmpty($("#txtLocation").val())) {
+				alert("请输入设备位置");
+				$("#txtLocation").focus();
+				return;
+			}
 
 			$.post("DeviceAjax.aspx?type=save"
 				, { id: deviceId
@@ -52,6 +57,7 @@
 					, antNo: $("#txtAntNo").val()
 					, deviceType: $("#selDeviceType").val()
 					, accessFlag: $("#selAccessFlag").val()
+					, location: $("#txtLocation").val()
 					, active: $("#chkActive").attr("checked")
 				}
 				, function (response) {
@@ -81,6 +87,7 @@
 			$("#txtAntNo").val(device.antNo);
 			$("#selDeviceType").val(device.deviceType);
 			$("#selAccessFlag").val(device.accessFlag);
+			$("#txtLocation").val(device.location);
 			$("#chkActive").attr("checked", device.active);
 		});
 	}
@@ -128,6 +135,10 @@
 				<option value="1">只出不入</option>
 				<option value="2">既入又出</option>
 			</select></td>
+		</tr>
+		<tr>
+			<td>设备位置</td>
+			<td><input type="text" id="txtLocation" class="textbox" maxlength="50" /></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>

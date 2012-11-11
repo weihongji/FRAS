@@ -29,8 +29,17 @@ public partial class Attendance_AttendanceList : PrivilegePage
 		this.repeaterDept.DataBind();
 	}
 
+	protected string GetRecordCheckbox(object ID, object flag) {
+		if ((int)flag != 1 || this.LoginUserRole == 5) {
+			return "<input type=\"checkbox\" class=\"p\" id=\"chk" + ID.ToString() + "\" value=\"" + ID.ToString() + "\" />";
+		}
+		else {
+			return "";
+		}
+	}
+
 	protected string GetEditLink(object ID, object flag) {
-		if ((int)flag != 1) {
+		if ((int)flag != 1 || this.LoginUserRole == 5) {
 			return "<a href=\"AttendanceForm.aspx?id=" + ID.ToString() + ListQS + "\">修改</a>";
 		}
 		else {

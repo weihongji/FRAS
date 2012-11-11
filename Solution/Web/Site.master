@@ -11,7 +11,8 @@
 	<script type="text/javascript" src="<%=ResolveUrl("~/Script/jquery.min.js")%>"></script>
 	<script type="text/javascript" src="<%=ResolveUrl("~/Script/fras.js")%>"></script>
 	<script type="text/javascript" language="javascript">
-		var i = 0;
+		var m_deviceMonitorTimer;
+
 		$(function () {
 			// Left
 			$("#left>img").each(function () {
@@ -27,6 +28,9 @@
 
 			// Right
 			//setNavigationBar("<%=CurrentModule %>");
+			$("#btnHideDeviceMonitor").click(stopDeviceMonitor);
+			refreshDeviceMonitor();
+			m_deviceMonitorTimer = window.setInterval(refreshDeviceMonitor, 60000); // Refresh once every minute
 		});
 	</script>
 	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -43,6 +47,17 @@
 			<div style="clear:both;"></div>
 		</div>
 		<div class="banner_bottom"></div>
+		<div id="device_monitor" style="display:none;">
+			<table cellpadding="3" cellspacing="0">
+				<tr><td style="padding-bottom:10px;">服务端程序:</td><td style="padding-bottom:10px;">正常运行</td></tr>
+				<tr><td>办公楼:</td><td>连接正常</td></tr>
+				<tr><td>井口1:</td><td style="color:Red;">连接异常</td></tr>
+				<tr><td>井口2:</td><td>连接正常</td></tr>
+			</table>
+			<div style="text-align:right; padding-top:10px;">
+				<input type="button" class="button2" id="btnHideDeviceMonitor" value="隐藏" />
+			</div>
+		</div>
 		<div id="left">
 			<img src="<% = ResolveUrl("~/Image/menu_query.gif")%>" style="cursor:pointer;" alt="Query" />
 			<ul>

@@ -36,5 +36,18 @@ namespace BLL
 		public static DataTable GetList(bool ActiveOnly = false) {
 			return DeviceDao.GetList(ActiveOnly);
 		}
+
+		public static string GetMonitorText() {
+			StringBuilder text = new StringBuilder();
+			DataTable table = DeviceDao.GetListForMonitor();
+			foreach (DataRow row in table.Rows) {
+				if (text.Length > 0) {
+					text.Append(", ");
+				}
+				text.Append("{text:'" + row["Location"].ToString() + "', value:'" + row["Status"].ToString() + "'}");
+
+			}
+			return "[" + text.ToString() + "]";
+		}
 	}
 }

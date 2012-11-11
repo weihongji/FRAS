@@ -74,7 +74,7 @@
 		});
 
 		$("#btnApprove").click(function () {
-			$(".list :checkbox:checked[state=0]").each(function () {
+			$(".list :checkbox:checked").each(function () {
 				var id = this.value;
 				$.post("AttendanceAjax.aspx?type=approve", { id: id }, function (response) {
 					if (response != "true") {
@@ -119,13 +119,16 @@
 			setButtonState();
 		});
 
+		if (<%=this.LoginUserRole %> != 5) {
+			$("#btnApprove").hide();
+		}
 		initValues();
 		setButtonState();
 	});
 
 	function setButtonState() {
 		$("#btnDelete").attr("disabled", $(".list :checkbox:checked").length == 0);
-		$("#btnApprove").attr("disabled", $(".list :checkbox:checked[state=0]").length == 0);
+		$("#btnApprove").attr("disabled", $(".list :checkbox:checked").length == 0);
 	}
 
 	function initValues() {
@@ -197,7 +200,7 @@
 			<asp:Repeater ID="repeaterAttendance" EnableViewState="false" runat="server">
 			<ItemTemplate>
 			<tr>
-				<td class="c"><input type="checkbox" class="p" id="chk<%#Eval("ID") %>" value="<%#Eval("ID") %>" state="<%#Eval("state") %>" /></td>
+				<td class="c"><%#GetRecordCheckbox(Eval("ID"), Eval("state"))%></td>
 				<td><%#Eval("ID") %></td>
 				<td><%#Eval("userId")%></td>
 				<td><%#Eval("UserName")%></td>

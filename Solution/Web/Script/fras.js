@@ -219,6 +219,37 @@ function collapseMenu() {
 	$("#left_collapsed").click();
 }
 
+function stopDeviceMonitor() {
+	$("#device_monitor").hide();
+	window.clearInterval(m_deviceMonitorTimer);
+}
+
+function refreshDeviceMonitor() {
+	$.ajax({
+			async: true
+		, type: "GET"
+		, url: "../System/DeviceAjax.aspx?type=monitor&stamp=" + (new Date()).toString()
+		, success: function(response) {
+			eval("var devices = " + response);
+			var html = "", dev;
+			for(var i=0; i<devices.length; i++) {
+				dev = devices[i];
+				if (i == 0) {
+					html += "<tr><td style='padding-bottom:10px;'>" + dev.text + ":</td><td style='padding-bottom:10px;" + (dev.value.indexOf("异常") < 0 ? " color:Green;" : " color:Red;") + "'>" + dev.value + "</td></tr>";
+				}
+				else {
+					html += "<tr><td>" + dev.text + ":</td><td" + (dev.value.indexOf("异常") < 0 ? " style='color:Green;'" : " style='color:Red;'") + ">" + dev.value + "</td></tr>";
+				}
+			}
+			$("#device_monitor>table:first").html(html);
+
+			if ($("#device_monitor").css("display") == "none") {
+				$("#device_monitor").show();
+			}
+		}
+	});
+}
+
 /* Number Utilities
 ----------------------------------------------------------*/
 //format "12345" to "12,345.00"

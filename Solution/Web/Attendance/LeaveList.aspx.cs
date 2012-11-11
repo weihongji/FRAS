@@ -30,7 +30,7 @@ public partial class Attendance_LeaveList : PrivilegePage
 	}
 
 	protected string GetRecordCheckbox(object ID, object flag) {
-		if ((int)flag != 1) {
+		if ((int)flag != 1 || this.LoginUserRole == 5) {
 			return "<input type=\"checkbox\" class=\"p\" id=\"chk" + ID.ToString() + "\" value=\"" + ID.ToString() + "\" />";
 		}
 		else {
@@ -39,7 +39,7 @@ public partial class Attendance_LeaveList : PrivilegePage
 	}
 
 	protected string GetEditLink(object ID, object flag) {
-		if ((int)flag != 1) {
+		if ((int)flag != 1 || this.LoginUserRole == 5) {
 			return "<a href=\"LeaveForm.aspx?id=" + ID.ToString() + ListQS + "\">修改</a>";
 		}
 		else {

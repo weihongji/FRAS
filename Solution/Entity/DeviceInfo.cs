@@ -16,6 +16,7 @@ namespace Entity
 		string m_Password;
 		int m_AntNo;
 		int m_AccessFlag;
+		string m_Location;
 		bool m_Active;
 		string m_DeviceTypeName;
 		string m_AccessFlagName;
@@ -33,6 +34,7 @@ namespace Entity
 			m_Password = row["devPassword"].ToString().Trim();
 			m_AntNo = (int)row["antNo"];
 			m_AccessFlag = (int)row["accessFlag"];
+			m_Location = row["Location"].ToString().Trim();
 			m_Active = (int)row["flag"] == 1;
 			m_DeviceTypeName = row["DevTypeName"].ToString().Trim();
 			m_ActiveName = row["ActiveName"].ToString().Trim();
@@ -79,6 +81,11 @@ namespace Entity
 			set { m_AccessFlag = value; }
 		}
 
+		public string Location {
+			get { return m_Location; }
+			set { m_Location = value.Trim(); }
+		}
+
 		public bool Active {
 			get { return m_Active; }
 			set { m_Active = value; }
@@ -106,6 +113,7 @@ namespace Entity
 			s.Append(", password: '" + m_Password + "'");
 			s.Append(", antNo: " + m_AntNo);
 			s.Append(", accessFlag: " + m_AccessFlag);
+			s.Append(", location: '" + m_Location + "'");
 			s.Append(", active: " + (m_Active ? "true" : "false"));
 			s.Append(", activeName: '" + m_ActiveName + "'");
 			s.Append(", deviceTypeName: '" + m_DeviceTypeName + "'");

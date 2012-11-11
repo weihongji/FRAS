@@ -94,6 +94,9 @@
 			setButtonState();
 		});
 
+		if (<%=this.LoginUserRole %> != 5) {
+			$("#btnApprove").hide();
+		}
 		$.ajaxSettings.async = false;
 		initValues();
 		setButtonState();

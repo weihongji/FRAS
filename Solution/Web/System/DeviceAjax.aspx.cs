@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Text;
 using BLL;
 using Entity;
 
@@ -22,6 +24,9 @@ public partial class System_DeviceAjax : PrivilegePage
 				bool success = DeviceBiz.Delete(GetFormInteger("id"));
 				Response.Write(success ? "true" : "false");
 				break;
+			case "monitor":
+				Response.Write(DeviceBiz.GetMonitorText());
+				break;
 			default:
 				Response.Write("Unknown query type.");
 				break;
@@ -38,6 +43,7 @@ public partial class System_DeviceAjax : PrivilegePage
 		user.Password = Request.Form["password"];
 		user.AntNo = GetFormInteger("antNo");
 		user.AccessFlag = GetFormInteger("accessFlag");
+		user.Location = Request.Form["location"];
 		user.Active = Request.Form["active"] == "true";
 		return user;
 	}

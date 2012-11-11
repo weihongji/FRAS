@@ -159,3 +159,14 @@ div.page {
 	border-bottom: 1px solid #11569B;
 	color: #11569B;
 }
+
+#device_monitor {
+	position:fixed;
+	top:100px;
+	left:1020px;
+	padding:10px;
+	width:200px;
+	border:1px solid black;
+	background-color:#F3F3F3;
+	z-index:100;
+}
